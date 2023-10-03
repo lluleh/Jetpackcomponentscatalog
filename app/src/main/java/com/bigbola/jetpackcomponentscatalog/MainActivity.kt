@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -35,7 +36,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyTextFieldAdvance()
+                    var myText by remember { mutableStateOf("") }
+
+                    MyTextField(myText) { myText = it}
                 }
             }
         }
@@ -71,12 +74,20 @@ fun MyTextFieldAdvance() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyTextField() {
+fun MyTextFieldOutlined() {
 
     var myText by remember { mutableStateOf("") }
-    TextField(value = myText, onValueChange = { myText = it })
+    OutlinedTextField(value = myText, onValueChange = { myText = it })
 
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MyTextField(name:String, onValueChange: (String) -> Unit) {
+
+    TextField(value = name, onValueChange = { onValueChange(it) })
+}
+
 
 @Composable
 fun MyText() {
