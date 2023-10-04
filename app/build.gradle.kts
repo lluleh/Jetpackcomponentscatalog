@@ -68,5 +68,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     //no se recomienda a menos que se necesite de lo contrario pesa mucho
-    implementation("androidx.compose.material:material-icons-core:1.5.2")
+//    implementation("androidx.compose.material:material-icons-core:1.5.2")
+//    implementation( "androidx.compose.material:material-icons-extended:$compose_version")
 }
